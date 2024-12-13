@@ -51,7 +51,7 @@ public class OpencartTest extends BaseTest {
         productPage.clickAddToCart();
         String successMessage = productPage.getTextSuccessMessage()
                 .substring(0, productPage.getTextSuccessMessage().length() - 1).trim();
-        Assert.assertEquals(successMessage, "Success: You have added " + titleProductName + " to your shopping cart!");
+        Assert.assertEquals("successMessage", "Success: You have added " + titleProductName + " to your shopping cart!");
         productPage.clickCartTotal();
         productPage.clickViewCart();
 
