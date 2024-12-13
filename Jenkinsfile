@@ -1,5 +1,4 @@
-pipeline{
-
+pipeline {
     agent any
 
     parameters {
@@ -7,16 +6,16 @@ pipeline{
     }
 
     stages {
-        stage('Execute tests'){
-            steps{
+        stage('Execute tests') {
+            steps {
                 bat "mvn clean test -Dbrowser=${params.browser}"
             }
         }
+    }
 
-        post { 
-            always {
-                archiveArtifacts artifacts: 'target/surefire-reports/emailable-report.html', followSymlinks: false
-            }
-    }    
+    post { 
+        always {
+            archiveArtifacts artifacts: 'target/surefire-reports/emailable-report.html', followSymlinks: false
+        }
     }
 }
