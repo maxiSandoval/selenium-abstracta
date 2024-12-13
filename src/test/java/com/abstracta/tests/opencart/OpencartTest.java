@@ -1,6 +1,7 @@
 package com.abstracta.tests.opencart;
 
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -40,7 +41,7 @@ public class OpencartTest extends BaseTest {
 
         Assert.assertTrue(searchResultPage.isAt(), "Search results page is not loaded correctly.");
         if (searchResultPage.isResultsEmpty()) {
-            System.out.println("No products found for the search: " + productName);
+            Reporter.log("No products found for the search: " + productName);
             Assert.assertEquals(searchResultPage.getTextEmptyResult(), "Your shopping cart is empty!");
             return;
         }

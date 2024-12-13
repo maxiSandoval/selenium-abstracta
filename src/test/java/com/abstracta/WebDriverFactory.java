@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Reporter;
 
 public class WebDriverFactory {
 
@@ -21,7 +22,7 @@ public class WebDriverFactory {
 
     public WebDriver getDriver(String browserName) {
         return driverMap.getOrDefault(browserName.toLowerCase().trim(), () -> {
-            System.out.println("Browser not found: " + browserName);
+            Reporter.log("Browser not found: " + browserName);
             throw new RuntimeException("Browser not found...");
         }).get();
     }
